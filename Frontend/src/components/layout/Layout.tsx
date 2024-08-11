@@ -5,7 +5,6 @@ import { cn } from "../../utils/helpers";
 import { Logo, LogoIcon } from "../ui/common/Logo";
 
 import {
-  IconArrowLeft,
   IconBrandTabler,
   IconCards,
   IconSettings,
