@@ -16,11 +16,11 @@ export const routes = [
     element: <HomePage />,
   },
   {
-    path: "/sign-in",
+    path: "/sign-in/*",
     element: <SignInPage />,
   },
   {
-    path: "/sign-up",
+    path: "/sign-up/*",
     element: <SignUpPage />,
   },
   {
