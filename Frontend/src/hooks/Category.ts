@@ -12,7 +12,15 @@ export const useGetAllCategories = () => {
     setLoading(true);
     try {
       const data = await CategoryService.getAllCategories();
-      setCategories(data);
+      // console.log(data);
+      const uniqueCategories = data
+        .filter((Category: any) => Category && Category.id) // Remove undefined and categories without an id
+        .reduce((acc: any, current: any) => {
+          const x = acc.find((item: any) => item.id === current.id);
+          return !x ? acc.concat([current]) : acc;
+        }, []);
+
+      setCategories(uniqueCategories);
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "An unknown error occurred"

@@ -5,6 +5,7 @@ export interface Category {
 export interface Category {
   id: number;
   name: string;
+  
 }
 
 export interface CategoryManagementProps {
@@ -24,7 +25,7 @@ export const featuredFlashcards = [
     time: "1h 53m",
     rating: "4.9/5",
     action: "Study",
-    id: 1,
+    id: 60004,
   },
   {
     image:
@@ -36,6 +37,7 @@ export const featuredFlashcards = [
     time: "59m",
     rating: "4.3/5",
     action: "Practice",
+    id: 60002,
   },
   {
     image: "https://cdn.pixabay.com/photo/2017/11/06/00/39/cat-2922329_640.jpg",
@@ -46,6 +48,7 @@ export const featuredFlashcards = [
     time: "2h 15m",
     rating: "4.7/5",
     action: "Explore",
+    id: 60003,
   },
   {
     image:
@@ -57,5 +60,6 @@ export const featuredFlashcards = [
     time: "3h 30m",
     rating: "4.8/5",
     action: "Discover",
+    id: 60001,
   },
 ];

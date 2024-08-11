@@ -1,3 +1,9 @@
+import { useState } from "react";
+import { Sidebar, SidebarBody, SidebarLink } from "../ui/navbar/Sidebar";
+import { UserButton, useUser } from "@clerk/clerk-react";
+import { cn } from "../../utils/helpers";
+import { Logo, LogoIcon } from "../ui/common/Logo";
+
 import {
   IconArrowLeft,
   IconBrandTabler,
@@ -5,22 +11,17 @@ import {
   IconSettings,
   IconUserBolt,
 } from "@tabler/icons-react";
-import { useState } from "react";
-import { Sidebar, SidebarBody, SidebarLink } from "../ui/navbar/Sidebar";
-
-import { UserButton, useUser } from "@clerk/clerk-react";
-
-import { cn } from "../../utils/helpers";
 import { Links } from "../../types/globals";
-import { Logo, LogoIcon } from "../ui/common/Logo";
+import { useAuth } from "../../hooks/useAuth";
 
 export const Layout: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const { isSignedIn, user } = useUser();
   const [open, setOpen] = useState(false);
+  const { role } = useAuth();
 
-  const links: Links[] = [
+  let links: Links[] = [
     {
       label: "Dashboard",
       href: "/",
@@ -42,13 +43,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
         <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
-    {
-      label: "Settings",
-      href: "#",
-      icon: (
-        <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
+
     {
       label: "Logout",
       href: "/sign-out",
@@ -60,10 +55,20 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
     },
   ];
 
+  if (role === "admin") {
+    links.push({
+      label: "Admin",
+      href: "/admin",
+      icon: (
+        <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    });
+  }
+
   return (
     <div
       className={cn(
-        "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
+        "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 mx-auto border border-neutral-200 dark:border-neutral-700 ",
         "h-screen"
       )}
     >

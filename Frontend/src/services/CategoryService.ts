@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = import.meta.env.VITE_SOME_KEY2;
 
 async function getAllCategories() {
   const response = await fetch(`${BASE_URL}/categories`);

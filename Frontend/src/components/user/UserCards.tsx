@@ -95,10 +95,7 @@ export default function UserCards({ id }: { id: number }) {
           <Button onClick={handlePrevious} text="Previous" />
           <Button onClick={handleNext} text="Next" />
         </div>
-        <div className="text-lg font-semibold">
-          Progress: {Object.values(progress).filter(Boolean).length} /{" "}
-          {cards.length}
-        </div>
+        
       </div>
     </>
   );

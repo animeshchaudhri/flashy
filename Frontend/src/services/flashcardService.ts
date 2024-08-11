@@ -1,5 +1,7 @@
-const BASE_URL = "http://localhost:3000";
-// Card Services
+const BASE_URL = import.meta.env.VITE_SOME_KEY2;
+
+
+
 async function getAllCards() {
   const response = await fetch(`${BASE_URL}/cards`);
   if (!response.ok) {
@@ -8,6 +10,7 @@ async function getAllCards() {
   return response.json();
 }
 
+
 async function getCardById(id: number) {
   const response = await fetch(`${BASE_URL}/cards/${id}`);
   if (!response.ok) {
@@ -15,6 +18,8 @@ async function getCardById(id: number) {
   }
   return response.json();
 }
+
+
 
 async function addCard(cardData: any) {
   const response = await fetch(`${BASE_URL}/cards`, {
@@ -30,6 +35,8 @@ async function addCard(cardData: any) {
   return response.json();
 }
 
+
+
 async function updateCard(id: number, cardData: any) {
   const response = await fetch(`${BASE_URL}/cards/${id}`, {
     method: "PUT",
@@ -44,6 +51,8 @@ async function updateCard(id: number, cardData: any) {
   return response.json();
 }
 
+
+
 async function deleteCard(id: number) {
   const response = await fetch(`${BASE_URL}/cards/${id}`, {
     method: "DELETE",
@@ -53,6 +62,8 @@ async function deleteCard(id: number) {
   }
   return response.json();
 }
+
+
 
 async function getCardsByCategory(categoryId: number) {
   const response = await fetch(`${BASE_URL}/cards/category/${categoryId}`);

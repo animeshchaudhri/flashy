@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const FlashcardItem = ({
   image,
   avatar,
@@ -6,6 +8,7 @@ export const FlashcardItem = ({
   time,
   rating,
   action,
+  id,
 }: {
   image: string;
   avatar: string;
@@ -16,6 +19,7 @@ export const FlashcardItem = ({
   action: string;
   id: number;
 }) => (
+  
   <div className="bg-gray-800 rounded-lg shadow-md overflow-hidden">
     <div className="relative h-32">
       <img src={image} alt={title} className="w-full h-full object-cover" />
@@ -79,9 +83,11 @@ export const FlashcardItem = ({
           {rating}
         </div>
       </div>
+      <Link to={`/cards?id=${id}`}>
       <button className="w-full py-2 px-4 border border-gray-600 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
         {action}
       </button>
+      </Link>
     </div>
   </div>
 );
