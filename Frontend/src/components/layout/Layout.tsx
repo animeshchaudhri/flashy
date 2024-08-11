@@ -37,20 +37,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
       ),
     },
     {
-      label: "Profile",
+      label: "Scores",
       href: "/result",
       icon: (
         <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-
-    {
-      label: "Logout",
-      href: "/sign-out",
-      icon: (
-        <>
-          <IconArrowLeft className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-        </>
       ),
     },
   ];
