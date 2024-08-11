@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { ProtectedRouteProps } from "../../utils/roles";
+import Loading from "../ui/Loading";
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   allowedRoles,
@@ -10,7 +11,11 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   const { isAuthenticated, isLoading, role } = useAuth();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
 
   if (!isAuthenticated) {

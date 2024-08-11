@@ -4,7 +4,12 @@ import { SignIn } from "@clerk/clerk-react";
 const SignInPage: React.FC = () => {
   return (
     <div className="flex items-center justify-center mt-16">
-      <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
+      <SignIn
+        path="/sign-in"
+        // routing="path"
+        signUpUrl="/sign-up"
+        // path="/sing-in"
+      />
     </div>
   );
 };
